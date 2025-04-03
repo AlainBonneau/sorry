@@ -9,33 +9,34 @@
 
     <!-- Content on top of the flag -->
     <div class="content">
+      <!-- envelope without heart -->
       <button @click="showModal = true" class="open-modal">
-        กดเพื่ออ่านข้อความของฉัน
+         ✉️ กดเพื่ออ่านข้อความของฉัน ✉️
       </button>
 
       <div class="question">
-        <p>คุณยังอยากคุยกับฉันมั้ย ? (ปุ่มด้านล่างจะส่งคำตอบมาให้ฉัน)</p>
+        <p>เราคุยกันได้ไหม?</p>
         <div class="buttons">
-          <button @click="response('yes')">ใช่</button>
-          <button @click="response('no')">ไม่</button>
+          <button @click="prepareResponse('yes')">ใช่</button>
+          <button @click="prepareResponse('no')">ไม่</button>
         </div>
       </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Message Modal -->
     <div v-if="showModal" class="modal-overlay" @click.self="showModal = false">
-      <div class="envelope">
+      <div class="envelope animate-pop">
         <div class="letter">
           <div class="letter-background">
             <div class="letter-text">
               <p>
                 ฉันอยากบอกว่าฉันขอโทษจริงๆ สำหรับทุกอย่างที่ผ่านมา
-                ตอนนั้นฉันไม่ค่อยโอเค แต่ตอนนี้ฉันดีขึ้นแล้ว และฉันคิดถึงคุณม
+                ตอนนั้นฉันไม่ค่อยโอเค แต่ตอนนี้ฉันดีขึ้นแล้ว และฉันคิดถึงคุณมาก
                 ฉันสร้างเว็บไซต์นี้ขึ้นมาเพราะนี่คือวิธีของฉันในการบอกว่า
                 "ฉันเสียใจ" และว่าฉันอยากกลับมาเป็นเพื่อนกับคุณอีกครั้ง
                 เหมือนเมื่อก่อน
                 ฉันยังคิดถึงช่วงเวลาที่เราเล่นเกมด้วยกันตอนกลางคืนบน Discord
-                อยู่เสมอ มั
+                อยู่เสมอ
                 ฉันรู้ว่าความแตกต่างทางวัฒนธรรมระหว่างไทยกับฝรั่งเศสอาจทำให้เราเข้าใจกันยากขึ้น
                 และอาจทำให้เกิดปัญหาที่ฉันไม่เข้าใจในตอนนั้น
                 ถ้าฉันมีโอกาสอีกครั้ง ฉันสัญญาว่าจะเป็นเพื่อนที่ดีกว่าเดิม
@@ -54,6 +55,17 @@
         </div>
       </div>
     </div>
+
+    <!-- Simple Confirmation Modal -->
+    <div v-if="confirmModal" class="simple-modal">
+      <div class="simple-modal-box animate-pop">
+        <p style="margin-bottom: 1rem">คุณแน่ใจหรือไม่?</p>
+        <div class="buttons">
+          <button @click="confirmResponse">ยืนยัน</button>
+          <button @click="confirmModal = false">ยกเลิก</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -61,19 +73,26 @@
 import { ref } from "vue";
 
 const showModal = ref(false);
+const confirmModal = ref(false);
+const pendingAnswer = ref("");
 
-function response(answer) {
+function prepareResponse(answer) {
+  pendingAnswer.value = answer;
+  confirmModal.value = true;
+}
+
+function confirmResponse() {
+  confirmModal.value = false;
+
   fetch("https://formspree.io/f/xdkewgjp", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      message: answer, // ce sera "yes" ou "no"
-    }),
+    body: JSON.stringify({ message: pendingAnswer.value }),
   })
     .then(() => {
-      if (answer === "yes") {
+      if (pendingAnswer.value === "yes") {
         alert(
           "ได้รับการตอบกลับแล้ว ฉันจะติดต่อคุณอีกครั้ง (คุณสามารถปลดบล็อกฉันบนอินสตาได้ไหม) 🙂"
         );
@@ -129,6 +148,7 @@ function response(answer) {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 1.1rem;
 }
 
 .close-modal {
@@ -149,12 +169,19 @@ function response(answer) {
 
 .buttons button {
   margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   background-color: #a51931;
   color: white;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttons button:hover {
+  background-color: #c72745;
+  transform: scale(1.05);
 }
 
 .modal-overlay {
@@ -186,7 +213,6 @@ function response(answer) {
   width: 90%;
   max-width: 600px;
   overflow: hidden;
-  animation: popIn 0.4s ease;
 }
 
 .letter {
@@ -206,7 +232,7 @@ function response(answer) {
 }
 
 .letter-text {
-  background-color: rgba(255, 255, 255, 0.736);
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 1rem;
   border-radius: 10px;
   font-size: 1rem;
@@ -214,6 +240,26 @@ function response(answer) {
   text-align: center;
 }
 
+/* Simple modal confirmation */
+.simple-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.simple-modal-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
 @keyframes popIn {
   from {
     transform: scale(0.8);
@@ -223,5 +269,9 @@ function response(answer) {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.animate-pop {
+  animation: popIn 0.3s ease;
 }
 </style>
