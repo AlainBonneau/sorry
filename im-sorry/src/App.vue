@@ -1,13 +1,11 @@
 <template>
   <div class="app-container">
-    <!-- Thai flag background as full-screen background -->
-    <div class="flag-background">
-      <div class="flag-band red"></div>
-      <div class="flag-band white"></div>
-      <div class="flag-band blue"></div>
-      <div class="flag-band white"></div>
-      <div class="flag-band red"></div>
-    </div>
+    <!-- Thai flag background -->
+    <div class="flag-stripe red"></div>
+    <div class="flag-stripe white"></div>
+    <div class="flag-stripe blue"></div>
+    <div class="flag-stripe white"></div>
+    <div class="flag-stripe red"></div>
 
     <!-- Content on top of the flag -->
     <div class="content">
@@ -26,18 +24,26 @@
 
     <!-- Modal -->
     <div v-if="showModal" class="modal-overlay" @click.self="showModal = false">
-      <div class="modal">
-        <p>
-          ฉันขอโทษจริงๆ สำหรับทุกอย่างที่ผ่านมา ตอนนั้นฉันไม่ค่อยโอเค
-          แต่ตอนนี้ฉันดีขึ้นแล้ว และฉันคิดถึงคุณมาก
-          ฉันอยากกลับไปช่วงเวลาที่เราเล่นเกมด้วยกันตอนกลางคืนบน Discord
-          ฉันสัญญาว่าจะเป็นเพื่อนที่ดีกว่าเดิม
-          ฉันเข้าใจถ้าคุณไม่อยากคุยกับฉันอีก
-          และฉันขอโทษที่ทำให้ทุกอย่างต้องจบลงแบบนี้
-          แม้ฉันจะคิดว่าคุณคงไม่กลับมาแล้ว แต่ประตูของฉันจะเปิดอยู่เสมอสำหรับคุณ
-          ฉันหวังให้คุณมีแต่สิ่งดีๆ ในชีวิตนี้
-          และฉันจะหายไปจากชีวิตคุณตามที่สัญญา
-        </p>
+      <div class="envelope">
+        <div class="letter">
+          <div class="letter-background">
+            <div class="letter-text">
+              <p>
+                ฉันอยากบอกว่าฉันขอโทษจริงๆ สำหรับทุกอย่างที่ผ่านมา
+                ตอนนั้นฉันไม่ค่อยโอเค แต่ตอนนี้ฉันดีขึ้นแล้ว และฉันคิดถึงคุณมาก
+                ฉันสร้างเว็บไซต์นี้ขึ้นมา เพราะมันเป็นวิธีของฉันในการบอกว่า
+                "ฉันเสียใจ" ฉันยังคิดถึงช่วงเวลาที่เราเล่นเกมด้วยกันตอนกลางคืนบน
+                Discord อยู่เสมอ ถ้าฉันมีโอกาสอีกครั้ง
+                ฉันสัญญาว่าจะเป็นเพื่อนที่ดีกว่าเดิม
+                ฉันเข้าใจดีถ้าคุณไม่อยากคุยกับฉันอีก
+                และฉันขอโทษที่ทำให้ทุกอย่างต้องจบลงแบบนี้
+                ถึงแม้ฉันจะไม่หวังว่าคุณจะกลับมา แต่สำหรับคุณ...
+                ประตูของฉันจะเปิดอยู่เสมอ ฉันหวังให้คุณมีแต่สิ่งดีๆ ในชีวิต
+                และถ้าคุณต้องการให้ฉันหายไปจากชีวิต ฉันจะทำตามนั้น
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -51,8 +57,9 @@ const showModal = ref(false);
 function response(answer) {
   if (answer === "yes") {
     alert("ขอบคุณที่ให้โอกาสฉันอีกครั้ง 🙂");
+    window.open("https://www.instagram.com/alaindev97/", "_blank");
   } else {
-    alert("ฉันเข้าใจ และขอให้คุณโชคดีในทุกๆ อย่าง");
+    alert("Tām thī̀ s̄ạỵỵā wị̂ c̄hạn ca mị̀ rbkwn khuṇ xīk t̀x pị c̄hạn mị̀ thos̄ʹ khuṇ ley 🙂");
   }
 }
 </script>
@@ -60,25 +67,15 @@ function response(answer) {
 <style scoped>
 .app-container {
   height: 100vh;
-  width: 100vw;
-  background-image: url(../bg.jpg);
   overflow: hidden;
-  position: relative;
   font-family: sans-serif;
   color: #333;
+  position: relative;
 }
 
-.flag-background {
-  position: absolute;
+.flag-stripe {
+  height: 20vh;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  z-index: 0;
-}
-
-.flag-band {
-  flex: 1;
 }
 
 .red {
@@ -89,19 +86,15 @@ function response(answer) {
 }
 .blue {
   background-color: #2d2a4a;
-  flex: 2;
 }
 
 .content {
-  position: relative;
-  z-index: 10;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  padding: 1rem;
+  z-index: 10;
 }
 
 .open-modal {
@@ -128,7 +121,6 @@ function response(answer) {
   cursor: pointer;
   background-color: #a51931;
   color: white;
-  font-weight: bold;
 }
 
 .modal-overlay {
@@ -141,14 +133,48 @@ function response(answer) {
   z-index: 20;
 }
 
-.modal {
+.envelope {
   background: white;
-  padding: 2rem;
   border-radius: 10px;
-  max-width: 500px;
   width: 90%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  overflow: hidden;
+  animation: popIn 0.4s ease;
+}
+
+.letter {
+  position: relative;
+  padding: 0;
+}
+
+.letter-background {
+  background-image: url("../bg.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-text {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
   line-height: 1.6;
   text-align: center;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 </style>
