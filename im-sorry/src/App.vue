@@ -55,6 +55,12 @@
                 แปลและมีปัญหากับภาษาไทยเล็กน้อย ตาม Chatgpt ในประเทศไทย
                 คุณไม่มีคำศัพท์อย่างเป็นทางการที่จะระบุสิ่งนี้
                 คุณเรียกมันว่าอย่างนั้น เด็กที่มีพรสวรรค์ทางสติปัญญาและอารมณ์
+                มีเว็บไซต์ที่แสดงวิธีการทำงานแต่เป็นภาษาอังกฤษ :
+                <a
+                  href="https://www.canoncityschools.org/departments/gifted-talented-education/social-emotional-affective"
+                  target="_blank"
+                  >ลิงค์เว็บไซต์</a
+                >
               </p>
               <div class="close-modal" @click.self="showModal = false">ปิด</div>
             </div>
