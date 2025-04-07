@@ -306,7 +306,7 @@ packages:
       react: ^18 || ^19 || ^19.0.0-rc
       svelte: '>= 4'
       vue: ^3
-      vue-router: ^4
+      # vue-router: ^4
     peerDependenciesMeta:
       '@remix-run/react':
         optional: true
