@@ -1,4 +1,5 @@
 <template>
+  <Analytics />
   <div class="app-container">
     <!-- Thai flag background -->
     <div class="flag-stripe red"></div>
@@ -64,6 +65,7 @@
 </template>
 
 <script setup>
+import { Analytics } from "@vercel/analytics/vue";
 import { ref } from "vue";
 
 const showModal = ref(false);
