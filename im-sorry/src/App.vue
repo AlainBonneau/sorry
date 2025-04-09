@@ -11,11 +11,11 @@
     <div class="content">
       <!-- envelope without heart -->
       <button @click="showModal = true" class="open-modal">
-        ✉️ กดเพื่ออ่านข้อความของฉัน ✉️
+        ✉️ อ่านข้อความ(มีการแก้ไขแล้ว) ✉️
       </button>
 
       <div class="question">
-        <p>คุณสามารถส่งข้อความถึงฉันที่นี่หากคุณต้องการ</p>
+        <p>รอการตอบกลับอย่างจริงใจ</p>
         <textarea
           v-model="userMessage"
           placeholder="คุณสามารถเขียนข้อความถึงฉันตรงนี้ได้นะ..."
