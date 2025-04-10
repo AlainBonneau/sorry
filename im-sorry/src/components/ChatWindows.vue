@@ -32,13 +32,14 @@ import { ref, onMounted } from "vue";
 import { io } from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://chat.sparcky-dev.fr");
+
 const messages = ref([]);
 const newMessage = ref("");
 const user = "me"; // changer selon qui parle
 
 const fetchMessages = async () => {
-  const res = await axios.get("http://localhost:3001/chat");
+  const res = await axios.get("https://chat.sparcky-dev.fr/chat");
   messages.value = res.data;
 };
 
