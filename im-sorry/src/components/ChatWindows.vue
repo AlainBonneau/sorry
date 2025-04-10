@@ -74,6 +74,7 @@ onMounted(() => {
   height: 100vh;
   background-color: #fff;
   border: 1px solid #ccc;
+  overflow: hidden;
 }
 
 .chat-header {
@@ -89,6 +90,7 @@ onMounted(() => {
   padding: 1rem;
   overflow-y: auto;
   background: #f9f9f9;
+  min-height: 0;
 }
 
 .message {
