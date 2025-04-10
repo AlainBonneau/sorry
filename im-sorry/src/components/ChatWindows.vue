@@ -68,6 +68,7 @@ onMounted(() => {
 <style scoped>
 .chat-container {
   max-width: 600px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -83,6 +84,8 @@ onMounted(() => {
   color: white;
   font-weight: bold;
   text-align: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
 }
 
 .chat-messages {
@@ -90,15 +93,18 @@ onMounted(() => {
   padding: 1rem;
   overflow-y: auto;
   background: #f9f9f9;
-  min-height: 0;
+  min-height: 0; /* crucial pour scrollable dans flex */
+  display: flex;
+  flex-direction: column;
 }
 
 .message {
   margin-bottom: 1rem;
   padding: 0.6rem 1rem;
   border-radius: 10px;
-  max-width: 70%;
+  max-width: 80%;
   word-wrap: break-word;
+  font-size: 0.95rem;
 }
 
 .message-me {
@@ -120,13 +126,16 @@ onMounted(() => {
 
 .chat-input {
   display: flex;
-  padding: 1rem;
+  padding: 0.75rem;
   border-top: 1px solid #ccc;
+  flex-shrink: 0;
+  background: #fff;
 }
 
 .input {
   flex: 1;
   padding: 0.5rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   margin-right: 0.5rem;
@@ -139,5 +148,33 @@ onMounted(() => {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+  .chat-container {
+    border: none;
+    height: 100vh;
+  }
+
+  .chat-header {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .message {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .input {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  .send-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
 </style>
