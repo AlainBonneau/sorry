@@ -1,3 +1,7 @@
+<script>
+import ChatWindows from "./components/ChatWindows.vue";
+</script>
+
 <template>
   <div class="app-container">
     <!-- Thai flag background -->
@@ -13,6 +17,9 @@
       <button @click="showModal = true" class="open-modal">
         ✉️ อ่านข้อความ(มีการแก้ไขแล้ว) ✉️
       </button>
+      <button @click="showChatModal = true" class="open-chat">
+        💬 แชทส่วนตัว
+      </button>
 
       <div class="question">
         <p>รอการตอบกลับอย่างจริงใจ</p>
@@ -24,6 +31,18 @@
         <div class="buttons">
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
+        </div>
+      </div>
+      <div
+        v-if="showChatModal"
+        class="chat-modal-overlay"
+        @click.self="showChatModal = false"
+      >
+        <div class="chat-modal-box animate-pop">
+          <ChatWindows />
+          <button @click="showChatModal = false" class="close-chat">
+            ปิดแชท
+          </button>
         </div>
       </div>
     </div>
@@ -88,6 +107,7 @@
 import { ref } from "vue";
 
 const showModal = ref(false);
+const showChatModal = ref(false);
 const confirmModal = ref(false);
 const pendingAnswer = ref("");
 const userMessage = ref(""); // Nouveau champ texte
@@ -314,5 +334,78 @@ function confirmResponse() {
 
 .animate-pop {
   animation: popIn 0.3s ease;
+}
+
+.open-chat {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #2d2a4a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.chat-modal-box {
+  background: white;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 95%;
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.chat-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30; /* supérieur à l'autre */
+}
+
+.close-chat {
+  margin: 0.5rem auto;
+  background-color: #a51931;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .chat-modal-box {
+    width: 95%;
+    height: 95vh;
+    border-radius: 10px;
+  }
+
+  .chat-container {
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .letter-text {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .user-message {
+    height: 80px;
+  }
+
+  .open-modal,
+  .open-chat {
+    width: 90%;
+    margin: 0.5rem auto;
+  }
 }
 </style>
