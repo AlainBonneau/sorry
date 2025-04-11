@@ -21,19 +21,12 @@ import ChatWindows from "./components/ChatWindows.vue";
         💬 แชทส่วนตัว 💬
       </button>
 
-      <!-- Question note 1 à 10 -->
+      <!-- Question oui/non -->
       <div class="question">
-        <p>
-          โอกาสที่ผมจะกลับไปเป็นเพื่อนกับคุณได้อีกครั้ง (เหมือนเมื่อก่อน)
-          คือเท่าไรครับ? โปรดซื่อสัตย์หน่อย
-          โปรดอย่าลังเลที่จะเขียนข้อความถึงฉันในช่องด้านบน (1 ถึง 10)?
-        </p>
-        <select v-model="userNote" class="user-message">
-          <option disabled value="">เลือกคะแนนของคุณ</option>
-          <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
-        </select>
+        <p>คุณยังแคร์มิตรภาพของเราหรือเปล่า? (ได้โปรดตอบตามความจริงนะ)</p>
         <div class="buttons">
-          <button @click="prepareResponse(userNote)">ส่ง</button>
+          <button @click="prepareResponse('yes')">ใช่</button>
+          <button @click="prepareResponse('no')">ไม่</button>
         </div>
       </div>
 
@@ -125,11 +118,8 @@ const showModal = ref(false);
 const showChatModal = ref(false);
 const confirmModal = ref(false);
 const pendingAnswer = ref("");
-const userMessage = ref("");
-const userNote = ref("");
 
 function prepareResponse(answer) {
-  if (!answer) return alert("กรุณาเลือกคะแนนก่อนส่ง");
   pendingAnswer.value = answer;
   confirmModal.value = true;
 }
@@ -143,13 +133,15 @@ function confirmResponse() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      note: pendingAnswer.value,
+      message: pendingAnswer.value,
     }),
   })
     .then(() => {
-      alert("ขอบคุณสำหรับคะแนนของคุณ!");
-      pendingAnswer.value = "";
-      userNote.value = "";
+      if (pendingAnswer.value === "yes") {
+        alert("ขอบคุณสำหรับคำตอบของคุณ 🙂");
+      } else {
+        alert("เข้าใจแล้ว ขอบคุณที่ตอบนะครับ");
+      }
     })
     .catch((err) => {
       alert("เกิดข้อผิดพลาดในการส่ง 😢");
