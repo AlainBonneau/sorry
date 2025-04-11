@@ -18,10 +18,10 @@ import ChatWindows from "./components/ChatWindows.vue";
         ✉️ อ่านข้อความ(มีการแก้ไขแล้ว) ✉️
       </button>
       <button @click="showChatModal = true" class="open-chat">
-        💬 แชทส่วนตัว
+        💬 แชทส่วนตัว 💬
       </button>
 
-      <div class="question">
+      <!-- <div class="question">
         <p>รอการตอบกลับอย่างจริงใจ</p>
         <textarea
           v-model="userMessage"
@@ -32,7 +32,7 @@ import ChatWindows from "./components/ChatWindows.vue";
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
         </div>
-      </div>
+      </div> -->
       <div
         v-if="showChatModal"
         class="chat-modal-overlay"
@@ -349,9 +349,11 @@ function confirmResponse() {
 
 .open-chat {
   margin-top: 1rem;
+  margin-left: 1rem;
   padding: 0.5rem 1rem;
-  background: #2d2a4a;
-  color: white;
+  background: #a51931;
+  color: #fff;
+  border: 2px solid #a51931;
   border: none;
   border-radius: 6px;
   cursor: pointer;
