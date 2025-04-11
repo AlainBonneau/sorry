@@ -23,7 +23,10 @@ import ChatWindows from "./components/ChatWindows.vue";
 
       <!-- Question oui/non -->
       <div class="question">
-        <p>เราจะกลับมาเป็นเพื่อนกันอีกครั้งไหม? ฉันควรจะรอคุณต่อไปมั้ย ?</p>
+        <p>
+          เราจะกลับมาเป็นเพื่อนกันอีกครั้งไหม? ฉันควรจะรอคุณต่อไปมั้ย?
+          ฉันยังสำคัญอยู่มั้ย?
+        </p>
         <div class="buttons">
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
