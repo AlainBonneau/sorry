@@ -21,18 +21,22 @@ import ChatWindows from "./components/ChatWindows.vue";
         💬 แชทส่วนตัว 💬
       </button>
 
-      <!-- <div class="question">
-        <p>รอการตอบกลับอย่างจริงใจ</p>
-        <textarea
-          v-model="userMessage"
-          placeholder="คุณสามารถเขียนข้อความถึงฉันตรงนี้ได้นะ..."
-          class="user-message"
-        />
+      <!-- Question note 1 à 10 -->
+      <div class="question">
+        <p>
+          โอกาสที่ผมจะกลับไปเป็นเพื่อนกับคุณได้อีกครั้ง (เหมือนเมื่อก่อน)
+          คือเท่าไรครับ? โปรดซื่อสัตย์หน่อย
+          โปรดอย่าลังเลที่จะเขียนข้อความถึงฉันในช่องด้านบน (1 ถึง 10)?
+        </p>
+        <select v-model="userNote" class="user-message">
+          <option disabled value="">เลือกคะแนนของคุณ</option>
+          <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
+        </select>
         <div class="buttons">
-          <button @click="prepareResponse('yes')">ใช่</button>
-          <button @click="prepareResponse('no')">ไม่</button>
+          <button @click="prepareResponse(userNote)">ส่ง</button>
         </div>
-      </div> -->
+      </div>
+
       <div
         v-if="showChatModal"
         class="chat-modal-overlay"
@@ -121,9 +125,11 @@ const showModal = ref(false);
 const showChatModal = ref(false);
 const confirmModal = ref(false);
 const pendingAnswer = ref("");
-const userMessage = ref(""); // Nouveau champ texte
+const userMessage = ref("");
+const userNote = ref("");
 
 function prepareResponse(answer) {
+  if (!answer) return alert("กรุณาเลือกคะแนนก่อนส่ง");
   pendingAnswer.value = answer;
   confirmModal.value = true;
 }
@@ -137,22 +143,16 @@ function confirmResponse() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message: pendingAnswer.value,
-      note: userMessage.value, // On envoie le contenu de la zone texte
+      note: pendingAnswer.value,
     }),
   })
     .then(() => {
-      if (pendingAnswer.value === "yes") {
-        alert(
-          "ได้รับการตอบกลับแล้ว ฉันจะติดต่อคุณอีกครั้ง (คุณสามารถปลดบล็อกฉันบนอินสตาได้ไหม) 🙂"
-        );
-      } else {
-        alert("ฉันเข้าใจแล้ว ฉันจะไม่รบกวนคุณอีกแล้ว ขอบคุณสำหรับทุกอย่าง");
-      }
-      userMessage.value = ""; // Réinitialise le champ texte après envoi
+      alert("ขอบคุณสำหรับคะแนนของคุณ!");
+      pendingAnswer.value = "";
+      userNote.value = "";
     })
     .catch((err) => {
-      alert("Oops, something went wrong 😢");
+      alert("เกิดข้อผิดพลาดในการส่ง 😢");
       console.error(err);
     });
 }
