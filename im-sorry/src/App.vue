@@ -10,11 +10,7 @@ import ChatWindows from "./components/ChatWindows.vue";
     <div class="flag-stripe blue"></div>
     <div class="flag-stripe white"></div>
     <div class="flag-stripe red para-container">
-      <p>
-        ฉันมักจะอยากบอกคุณว่าฉันทำอะไร เพื่อแสดงให้คุณเห็นสิ่งที่ฉันสร้าง
-        โครงการเล็กๆ น้อยๆ ที่ฉันสร้าง เพียงเพื่อให้คุณเห็นโลกเล็กๆ น้อยๆ
-        ของฉันและฉันเป็นใคร 😋
-      </p>
+      <p>I still care 🥲</p>
     </div>
 
     <!-- Content on top of the flag -->
@@ -23,6 +19,11 @@ import ChatWindows from "./components/ChatWindows.vue";
       <button @click="showModal = true" class="open-modal">
         ✉️ อ่านข้อความ(มีการแก้ไขแล้ว) ✉️
       </button>
+
+      <button @click="showImageModal = true" class="open-image">
+        🖼️ ภาพ 🖼️
+      </button>
+
       <button @click="showChatModal = true" class="open-chat">
         💬 แชทส่วนตัว 💬
       </button>
@@ -50,6 +51,24 @@ import ChatWindows from "./components/ChatWindows.vue";
             ปิดแชท
           </button>
         </div>
+      </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div
+      v-if="showImageModal"
+      class="modal-overlay"
+      @click.self="showImageModal = false"
+    >
+      <div class="image-modal-box animate-pop">
+        <img
+          src="/msg.png"
+          alt="Image"
+          class="image-modal-content"
+        />
+        <button class="close-image" @click="showImageModal = false">
+          ปิดภาพ
+        </button>
       </div>
     </div>
 
@@ -136,6 +155,7 @@ const showModal = ref(false);
 const showChatModal = ref(false);
 const confirmModal = ref(false);
 const pendingAnswer = ref("");
+const showImageModal = ref(false);
 
 function prepareResponse(answer) {
   pendingAnswer.value = answer;
@@ -288,7 +308,7 @@ function confirmResponse() {
   z-index: 20;
 }
 
-.modal-overlay:before {
+/* .modal-overlay:before {
   content: "";
   position: absolute;
   top: 0;
@@ -299,7 +319,7 @@ function confirmResponse() {
   background-size: cover;
   background-position: center;
   filter: blur(5px);
-}
+} */
 
 .envelope {
   background: white;
@@ -412,6 +432,45 @@ function confirmResponse() {
   background-color: #a51931;
   color: white;
   padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Nouveau bouton image */
+.open-image {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background: #2d2a4a;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Modale image */
+.image-modal-box {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  max-width: 650px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.image-modal-content {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.close-image {
+  margin-top: 1rem;
+  padding: 0.4rem 1rem;
+  background-color: #2d2a4a;
+  color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
