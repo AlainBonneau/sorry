@@ -9,7 +9,13 @@ import ChatWindows from "./components/ChatWindows.vue";
     <div class="flag-stripe white"></div>
     <div class="flag-stripe blue"></div>
     <div class="flag-stripe white"></div>
-    <div class="flag-stripe red"></div>
+    <div class="flag-stripe red para-container">
+      <p>
+        ฉันมักจะอยากบอกคุณว่าฉันทำอะไร เพื่อแสดงให้คุณเห็นสิ่งที่ฉันสร้าง
+        โครงการเล็กๆ น้อยๆ ที่ฉันสร้าง เพียงเพื่อให้คุณเห็นโลกเล็กๆ น้อยๆ
+        ของฉันและฉันเป็นใคร 😋
+      </p>
+    </div>
 
     <!-- Content on top of the flag -->
     <div class="content">
@@ -187,6 +193,20 @@ function confirmResponse() {
 }
 .blue {
   background-color: #2d2a4a;
+}
+
+.para-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.para-container > p {
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0 1rem;
 }
 
 .content {
