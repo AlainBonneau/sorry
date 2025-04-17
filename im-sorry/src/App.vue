@@ -17,7 +17,7 @@ import ChatWindows from "./components/ChatWindows.vue";
     <div class="content">
       <!-- envelope without heart -->
       <button @click="showModal = true" class="open-modal">
-        ✉️ อ่านข้อความ(มีการแก้ไขแล้ว) ✉️
+        ✉️ อ่านข้อความ(ข้อความสุดท้าย) ✉️
       </button>
 
       <button @click="showImageModal = true" class="open-image">
