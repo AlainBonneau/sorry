@@ -21,9 +21,9 @@ import MarkdownViewer from "./components/MarkdownViewer.vue";
         ✉️ อ่านข้อความ(ข้อความสุดท้าย) ✉️
       </button>
 
-      <button @click="showMarkdownModal = true" class="open-markdown">
+      <!-- <button @click="showMarkdownModal = true" class="open-markdown">
         📄 การสนทนากับเพื่อนที่ดีที่สุดของฉัน 📄
-      </button>
+      </button> -->
 
       <button @click="showImageModal = true" class="open-image">
         🖼️ ภาพ 🖼️
@@ -71,7 +71,7 @@ import MarkdownViewer from "./components/MarkdownViewer.vue";
     </div>
 
     <!-- Markdown Modal -->
-    <div
+    <!-- <div
       v-if="showMarkdownModal"
       class="modal-overlay"
       @click.self="showMarkdownModal = false"
@@ -82,7 +82,7 @@ import MarkdownViewer from "./components/MarkdownViewer.vue";
           ปิดบทสนทนา
         </button>
       </div>
-    </div>
+    </div> -->
 
     <!-- Message Modal -->
     <div v-if="showModal" class="modal-overlay" @click.self="showModal = false">
