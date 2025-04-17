@@ -35,7 +35,7 @@ import MarkdownViewer from "./components/MarkdownViewer.vue";
 
       <!-- Question oui/non -->
       <div class="question">
-        <p>ฉันยังสำคัญอยู่มั้ย?</p>
+        <p>ฉันรอคุณอยู่ คุณจะมาไหม?</p>
         <div class="buttons">
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
