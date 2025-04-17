@@ -1,5 +1,6 @@
 <script>
 import ChatWindows from "./components/ChatWindows.vue";
+import MarkdownViewer from "./components/MarkdownViewer.vue";
 </script>
 
 <template>
@@ -20,6 +21,10 @@ import ChatWindows from "./components/ChatWindows.vue";
         ✉️ อ่านข้อความ(ข้อความสุดท้าย) ✉️
       </button>
 
+      <button @click="showMarkdownModal = true" class="open-markdown">
+        📄 การสนทนากับเพื่อนที่ดีที่สุดของฉัน 📄
+      </button>
+
       <button @click="showImageModal = true" class="open-image">
         🖼️ ภาพ 🖼️
       </button>
@@ -30,10 +35,7 @@ import ChatWindows from "./components/ChatWindows.vue";
 
       <!-- Question oui/non -->
       <div class="question">
-        <p>
-          เราจะกลับมาเป็นเพื่อนกันอีกครั้งไหม? ฉันควรจะรอคุณต่อไปมั้ย?
-          ฉันยังสำคัญอยู่มั้ย?
-        </p>
+        <p>ฉันยังสำคัญอยู่มั้ย?</p>
         <div class="buttons">
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
@@ -64,6 +66,20 @@ import ChatWindows from "./components/ChatWindows.vue";
         <img src="/msg.png" alt="Image" class="image-modal-content" />
         <button class="close-image" @click="showImageModal = false">
           ปิดภาพ
+        </button>
+      </div>
+    </div>
+
+    <!-- Markdown Modal -->
+    <div
+      v-if="showMarkdownModal"
+      class="modal-overlay"
+      @click.self="showMarkdownModal = false"
+    >
+      <div class="markdown-modal-box animate-pop">
+        <MarkdownViewer />
+        <button @click="showMarkdownModal = false" class="close-markdown">
+          ปิดบทสนทนา
         </button>
       </div>
     </div>
@@ -162,6 +178,7 @@ const showChatModal = ref(false);
 const confirmModal = ref(false);
 const pendingAnswer = ref("");
 const showImageModal = ref(false);
+const showMarkdownModal = ref(false);
 
 function prepareResponse(answer) {
   pendingAnswer.value = answer;
@@ -448,12 +465,12 @@ function confirmResponse() {
   margin-top: 1rem;
   margin-left: 1rem;
   padding: 0.5rem 1rem;
-  background: #2d2a4a;
+  background: #a51931;
   color: #fff;
-  border-radius: 6px;
+  border: 2px solid #a51931;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 /* Modale image */
@@ -479,6 +496,43 @@ function confirmResponse() {
   color: white;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
+}
+
+.open-markdown {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background: #2d2a4a;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.markdown-modal-box {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 700px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  text-align: left;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close-markdown {
+  margin-top: 1rem;
+  background: #2d2a4a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
