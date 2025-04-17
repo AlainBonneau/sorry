@@ -19,7 +19,7 @@
       <input
         v-model="newMessage"
         type="text"
-        placeholder="ปิดแล้"
+        placeholder="ข้อความ"
         class="input"
       />
       <button type="submit" class="send-button">ส่ง</button>
