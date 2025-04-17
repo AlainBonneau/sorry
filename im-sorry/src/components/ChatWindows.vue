@@ -17,12 +17,13 @@
     </div>
     <form @submit.prevent="sendMessage" class="chat-input">
       <input
+        disabled
         v-model="newMessage"
         type="text"
-        placeholder="พิมพ์ข้อความ..."
+        placeholder="ปิดแล้"
         class="input"
       />
-      <button type="submit" class="send-button">ส่ง</button>
+      <button type="submit" class="send-button" disabled>ส่ง</button>
     </form>
   </div>
 </template>
@@ -37,6 +38,7 @@ const socket = io("https://chat.sparcky-dev.fr");
 const messages = ref([]);
 const newMessage = ref("");
 const user = "me"; // changer selon qui parle
+const responseLocked = ref(true);
 
 const fetchMessages = async () => {
   const res = await axios.get("https://chat.sparcky-dev.fr/chat");
