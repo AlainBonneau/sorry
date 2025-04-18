@@ -1,6 +1,7 @@
 <script>
 import ChatWindows from "./components/ChatWindows.vue";
 import MarkdownViewer from "./components/MarkdownViewer.vue";
+import MinnieMessage from "./components/MinnieMessage.vue";
 </script>
 
 <template>
@@ -29,9 +30,30 @@ import MarkdownViewer from "./components/MarkdownViewer.vue";
         🖼️ ภาพ 🖼️
       </button>
 
+      <button @click="showMinnieModal = true" class="open-markdown">
+        📝 English text 📝
+      </button>
+
       <button @click="showChatModal = true" class="open-chat">
         💬 แชทส่วนตัว 💬
       </button>
+
+      <div
+        v-if="showMinnieModal"
+        class="modal-overlay"
+        @click.self="showMinnieModal = false"
+      >
+        <div class="envelope animate-pop">
+          <div class="letter">
+            <div class="">
+              <MinnieMessage />
+              <button class="close-modal" @click="showMinnieModal = false">
+                ปิด
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Question oui/non -->
       <div class="question">
@@ -179,6 +201,7 @@ const confirmModal = ref(false);
 const pendingAnswer = ref("");
 const showImageModal = ref(false);
 const showMarkdownModal = ref(false);
+const showMinnieModal = ref(false);
 
 function prepareResponse(answer) {
   pendingAnswer.value = answer;
@@ -503,12 +526,12 @@ function confirmResponse() {
   margin-top: 1rem;
   margin-left: 1rem;
   padding: 0.5rem 1rem;
-  background: #2d2a4a;
+  background: #a51931;
   color: #fff;
-  border-radius: 6px;
+  border: 2px solid #a51931;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 .markdown-modal-box {
