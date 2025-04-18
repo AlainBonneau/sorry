@@ -19,7 +19,7 @@
       <input
         v-model="newMessage"
         type="text"
-        placeholder="ข้อความ"
+        placeholder="แชทสดเปิดกว้าง ไม่มีข้อแก้ตัว ไม่มีเหตุผล มีเพียงความจริงเท่านั้น"
         class="input"
       />
       <button type="submit" class="send-button">ส่ง</button>
@@ -37,7 +37,6 @@ const socket = io("https://chat.sparcky-dev.fr");
 const messages = ref([]);
 const newMessage = ref("");
 const user = "me"; // changer selon qui parle
-const responseLocked = ref(true);
 
 const fetchMessages = async () => {
   const res = await axios.get("https://chat.sparcky-dev.fr/chat");
