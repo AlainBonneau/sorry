@@ -17,13 +17,12 @@
     </div>
     <form @submit.prevent="sendMessage" class="chat-input">
       <input
-        disabled
         v-model="newMessage"
         type="text"
         placeholder="แชทสดเปิดกว้าง ไม่มีข้อแก้ตัว ไม่มีเหตุผล มีเพียงความจริงเท่านั้น"
         class="input"
       />
-      <button disabled type="submit" class="send-button">ส่ง</button>
+      <button type="submit" class="send-button">ส่ง</button>
     </form>
   </div>
 </template>
