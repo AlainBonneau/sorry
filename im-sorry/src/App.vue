@@ -30,9 +30,9 @@ import MinnieMessage from "./components/MinnieMessage.vue";
         🖼️ ภาพ 🖼️
       </button>
 
-      <button @click="showMinnieModal = true" class="open-markdown">
+      <!-- <button @click="showMinnieModal = true" class="open-markdown">
         📝 English text 📝
-      </button>
+      </button> -->
 
       <button @click="showChatModal = true" class="open-chat">
         💬 แชทส่วนตัว 💬
