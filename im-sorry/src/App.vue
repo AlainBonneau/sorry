@@ -58,6 +58,14 @@ import MinnieMessage from "./components/MinnieMessage.vue";
       <!-- Question oui/non -->
       <div class="question">
         <p>วันหนึ่งคุณจะกลับมาไหม? ฉันจะเคารพการเลือกของคุณถ้าคุณปฏิเสธ 😌</p>
+
+        <!-- New textarea for her message -->
+        <textarea
+          v-model="userMessage"
+          class="user-message"
+          placeholder="อยากพูดอะไรก็พิมพ์ตรงนี้ได้นะ..."
+        ></textarea>
+
         <div class="buttons">
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
@@ -168,6 +176,7 @@ const pendingAnswer = ref("");
 const showImageModal = ref(false);
 const showMarkdownModal = ref(false);
 const showMinnieModal = ref(false);
+const userMessage = ref("");
 
 function prepareResponse(answer) {
   pendingAnswer.value = answer;
@@ -183,7 +192,8 @@ function confirmResponse() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message: pendingAnswer.value,
+      content: pendingAnswer.value,
+      message: userMessage.value,
     }),
   })
     .then(() => {
@@ -192,6 +202,7 @@ function confirmResponse() {
       } else {
         alert("เข้าใจแล้ว ขอบคุณที่ตอบนะครับ");
       }
+      userMessage.value = "";
     })
     .catch((err) => {
       alert("เกิดข้อผิดพลาดในการส่ง 😢");
