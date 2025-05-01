@@ -121,29 +121,70 @@ import MinnieMessage from "./components/MinnieMessage.vue";
           <div class="letter-background">
             <div class="letter-text">
               <p>
-                I know some time has passed, but I still think about you often.
-                I hope you're doing okay, truly. I don’t know how things are for
-                you right now, but I just wanted to reach out one more time,
-                calmly and from the heart. I still miss you. Not in a dramatic
-                or overwhelming way, just in a quiet, simple way. I miss who we
-                were, the way we talked, laughed, played. And most of all, I
-                miss the feeling of being able to speak to you honestly, without
-                fear. Looking back, I realize I made mistakes. I let my emotions
-                take over, I sent too many messages, and maybe I expected too
-                much. I didn’t want to hurt you, ever, but I see now how my
-                intensity could have made things hard for you. I regret that. I
-                wish I could’ve been more gentle, more patient, and less heavy.
-                I’m sorry for all the moments I made you feel uncomfortable,
-                pressured, or hurt. That was never my intention. I don’t expect
-                you to respond. I’m not asking for anything. I just wanted you
-                to know that I still care about you, and I still wish you the
-                best in everything. I hope you're surrounded by kindness, peace,
-                and people who make you feel safe. That’s what you deserve. If
-                one day you feel like saying hello again, even just as little,
-                I’d still be happy to hear from you. But if that day never
-                comes, I’ll understand too. Either way, I’ll always be grateful
-                for the little piece of life we shared. Take care of yourself,
-                okay ? And never forget that the bad person here is me, not you.
+                I think after everything I’ve done to you, you deserve to know
+                the truth about me.
+              </p>
+              <p>
+                I’m someone who’s always been quite solitary. I studied for a
+                long time, 7 years, but throughout that time, I didn’t really
+                have anyone to talk to. That was a choice I made for myself.
+                Often, I feel like I don’t belong in this world. I’m not sure
+                how to explain it. It’s just that what I’m searching for in
+                life… I haven’t been able to find it. I’m surrounded by a lot of
+                fake people. And when someone asks me if I’m okay, I smile and
+                say “yes.” A fake smile, but no one ever notices. I told you
+                before, I feel emotions too strongly. It’s how I was born.
+              </p>
+              <p>
+                When I first started talking to you, you barely replied. So I
+                put you in the same category as everyone else who didn’t care
+                about me, and I blocked you on Discord, forgetting to block you
+                on Instagram. At that moment, I thought we’d never talk again.
+              </p>
+              <p>
+                But then you did something very few people would do. You reached
+                out. And it touched me deeply. You ended up saying you didn’t
+                want to lose me. Those words… I don’t hear them often. So yes, I
+                started to believe that maybe I had found someone who could
+                understand me. And then I made the mistake of putting enormous
+                pressure on you. I imagine, from your side, that pressure must
+                have felt overwhelming, and I completely understand.
+              </p>
+              <p>
+                Since I often gave my emotions to the wrong people, I just
+                decided to close myself off and stop giving them. You were just
+                there, at a time when it had been several years since I had
+                opened up to someone. That's why I gave so much, way too much I
+                know. Forgive me, it's just that I felt a lot of sincerity in
+                the way you spoke and that's not something I'm used to here in
+                France.
+              </p>
+              <p>
+                I just want you to know: I’m not a bad person. And I truly,
+                sincerely apologize for the pain I caused you. I acted horribly
+                toward you, and I feel terribly guilty for it. I hurt you so
+                much that you couldn’t even speak when you were in front of me.
+                I often think about you… and I’m filled with regret. I wish I
+                could go back in time and start everything over. But of course,
+                I can’t.
+              </p>
+              <p>
+                So this is who I am: Harry. A 27-year-old French man living in
+                Paris. With one close friend (sorry again, Yuriko) and only my
+                mother by my side. A man who doesn’t really understand the world
+                around him. A sensitive man — something that isn’t very accepted
+                in our society. A man who sometimes wonders what life is really
+                for.
+              </p>
+              <p>
+                I wanted you to know who I am and why I acted the way I did. I’m
+                not asking you to forgive me. I know that’s impossible, and
+                probably better for you. But I just wanted you to know the
+                reasons behind everything I did. With honesty and deep regret,
+              </p>
+              <p>
+                You are a very beautiful person, I'm sorry you came across my
+                path.
               </p>
               <p>a fool named Harry 🙄</p>
               <div class="close-modal" @click.self="showModal = false">ปิด</div>
