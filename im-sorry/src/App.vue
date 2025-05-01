@@ -57,7 +57,7 @@ import MinnieMessage from "./components/MinnieMessage.vue";
 
       <!-- Question oui/non -->
       <div class="question">
-        <p>คุณจะมีกำลังใจมาคุยกับฉันสักวันไหม?</p>
+        <p>วันหนึ่งคุณจะกลับมาไหม? ฉันจะเคารพการเลือกของคุณถ้าคุณปฏิเสธ 😌</p>
         <div class="buttons">
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
