@@ -69,6 +69,9 @@ import MinnieMessage from "../components/MinnieMessage.vue";
         <div class="buttons">
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
+          <router-link to="/about" class="open-modal">Page suivante</router-link>
+        </div>
+        <div>
         </div>
       </div>
 
