@@ -54,7 +54,11 @@ const sendMessage = () => {
 };
 
 const formatTimestamp = (ts) => {
-  return new Date(ts).toLocaleTimeString();
+  // On récupère la date et l’heure formatées selon la locale
+  const d = new Date(ts);
+  const date = d.toLocaleDateString(); // ex. "03/05/2025"
+  const time = d.toLocaleTimeString(); // ex. "14:35:20"
+  return `${date} ${time}`;
 };
 
 onMounted(() => {
