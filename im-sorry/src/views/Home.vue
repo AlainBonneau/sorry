@@ -69,10 +69,11 @@ import MinnieMessage from "../components/MinnieMessage.vue";
         <div class="buttons">
           <button @click="prepareResponse('yes')">ใช่</button>
           <button @click="prepareResponse('no')">ไม่</button>
-          <router-link to="/about" class="open-modal">Page suivante</router-link>
+          <router-link to="/about" class="open-modal new-btn"
+            >หน้าถัดไป -></router-link
+          >
         </div>
-        <div>
-        </div>
+        <div></div>
       </div>
 
       <div
@@ -577,6 +578,15 @@ function confirmResponse() {
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.new-btn {
+  background: #2d2a4a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
 
