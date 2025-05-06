@@ -5,6 +5,8 @@ import http from "http";
 import { Server } from "socket.io";
 import mongoose from "mongoose";
 import cors from "cors";
+import fs from "fs";
+import path from "path";
 
 const app = express();
 const server = http.createServer(app);
@@ -36,6 +38,15 @@ const Message = mongoose.model("Message", messageSchema);
 app.get("/chat", async (req, res) => {
   const messages = await Message.find().sort({ timestamp: 1 });
   res.json(messages);
+});
+
+app.post("/track-view", express.json(), (req, res) => {
+  const { target, timestamp } = req.body;
+  const line = `${new Date().toISOString()} | ${target}\n`;
+  fs.appendFile(path.join(__dirname, "views-log.txt"), line, (err) => {
+    if (err) return res.status(500).send("Failed to save view");
+    res.status(200).json({ success: true });
+  });
 });
 
 // WebSocket: Handle new messages

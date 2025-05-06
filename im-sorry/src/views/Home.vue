@@ -34,7 +34,15 @@ import MinnieMessage from "../components/MinnieMessage.vue";
         📝 English text 📝
       </button> -->
 
-      <button @click="showChatModal = true" class="open-chat">
+      <button
+        @click="
+          () => {
+            showChatModal = true;
+            trackModalOpen();
+          }
+        "
+        class="open-chat"
+      >
         💬 แชทส่วนตัว 💬
       </button>
 
@@ -254,6 +262,18 @@ function confirmResponse() {
       console.error(err);
     });
 }
+
+const trackModalOpen = () => {
+  fetch("https://chat.sparcky-dev.fr/track-view", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      target: "minnie-message",
+      timestamp: new Date().toISOString(),
+      // éventuellement un ID utilisateur anonyme ici
+    }),
+  });
+};
 </script>
 
 <style scoped>
