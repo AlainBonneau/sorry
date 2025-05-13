@@ -19,7 +19,7 @@ import MinnieMessage from "../components/MinnieMessage.vue";
     <div class="content">
       <!-- envelope without heart -->
       <button @click="showModal = true" class="open-modal">
-        ✉️ อ่านข้อความ(ข้อความสุดท้าย) ✉️
+        ✉️ กรุณาอ่าน ✉️
       </button>
 
       <!-- <button @click="showMarkdownModal = true" class="open-markdown">
@@ -133,72 +133,78 @@ import MinnieMessage from "../components/MinnieMessage.vue";
           <div class="letter-background">
             <div class="letter-text">
               <p>
-                I think after everything I’ve done to you, you deserve to know
-                the truth about me.
+                I don’t know if you’ll ever read this fully… but I need to say
+                it somewhere, just to let it out.
               </p>
               <p>
-                I’m someone who’s always been quite solitary. I studied for a
-                long time, 7 years, but throughout that time, I didn’t really
-                have anyone to talk to. That was a choice I made for myself.
-                Often, I feel like I don’t belong in this world. I’m not sure
-                how to explain it. It’s just that what I’m searching for in
-                life… I haven’t been able to find it. I’m surrounded by a lot of
-                fake people. And when someone asks me if I’m okay, I smile and
-                say “yes.” A fake smile, but no one ever notices. I told you
-                before, I feel emotions too strongly. It’s how I was born.
+                I know I’ve probably sent too many messages already… and you
+                might be tired of reading them. But I just need to speak
+                honestly, without trying to make it short or simple.
               </p>
               <p>
-                When I first started talking to you, you barely replied. So I
-                put you in the same category as everyone else who didn’t care
-                about me, and I blocked you on Discord, forgetting to block you
-                on Instagram. At that moment, I thought we’d never talk again.
+                This whole situation hurts me more than I can explain. Not
+                because I’m mad at you. I promise I’m not. But because I just…
+                don’t understand. I don’t understand why the people I care about
+                always seem to disappear one day, without a word.
               </p>
               <p>
-                But then you did something very few people would do. You reached
-                out. And it touched me deeply. You ended up saying you didn’t
-                want to lose me. Those words… I don’t hear them often. So yes, I
-                started to believe that maybe I had found someone who could
-                understand me. And then I made the mistake of putting enormous
-                pressure on you. I imagine, from your side, that pressure must
-                have felt overwhelming, and I completely understand.
+                You know… I’ve always been the kind of person who overthinks
+                everything. I guess I’ve always been that way — people used to
+                call me a “gifted child”, someone who thinks too much, feels too
+                much, questions everything too deeply. Maybe that’s why I get so
+                easily lost in my own mind, in my own fears.
               </p>
               <p>
-                Since I often gave my emotions to the wrong people, I just
-                decided to close myself off and stop giving them. You were just
-                there, at a time when it had been several years since I had
-                opened up to someone. That's why I gave so much, way too much I
-                know. Forgive me, it's just that I felt a lot of sincerity in
-                the way you spoke and that's not something I'm used to here in
-                France.
+                The truth is… I don’t have many people in my life. I have maybe
+                one true friend. Even my family barely talks to me, except for
+                my mom. I’ve always felt like I was standing alone, waiting for
+                someone to truly stay.
               </p>
               <p>
-                I just want you to know: I’m not a bad person. And I truly,
-                sincerely apologize for the pain I caused you. I acted horribly
-                toward you, and I feel terribly guilty for it. I hurt you so
-                much that you couldn’t even speak when you were in front of me.
-                I often think about you… and I’m filled with regret. I wish I
-                could go back in time and start everything over. But of course,
-                I can’t.
+                That’s why what you said once — “I don’t want to lose you” —
+                really meant the world to me. I don’t know if you remember
+                saying it… Maybe you regret those words now. But for me, they
+                stayed in my heart. They were the most important words I had
+                heard in a long time.
+              </p>
+              <p>And since that day… I’ve missed you. Every day.</p>
+              <p>
+                I know it might seem silly to you… I know we didn’t know each
+                other for that long. But you were special to me. You still are.
               </p>
               <p>
-                So this is who I am: Harry. A 27-year-old French man living in
-                Paris. With one close friend (sorry again, Yuriko) and only my
-                mother by my side. A man who doesn’t really understand the world
-                around him. A sensitive man — something that isn’t very accepted
-                in our society. A man who sometimes wonders what life is really
-                for.
+                Sometimes I get angry… not at you, but at myself, and at life in
+                general. Angry because I feel like I’m never good enough.
+                Because I feel like no matter what I do, I always end up alone.
               </p>
               <p>
-                I wanted you to know who I am and why I acted the way I did. I’m
-                not asking you to forgive me. I know that’s impossible, and
-                probably better for you. But I just wanted you to know the
-                reasons behind everything I did. With honesty and deep regret,
+                I have this constant fear inside me… Fear of being abandoned,
+                fear of disappointing people, fear of being forgotten. And yes,
+                I know it’s my own problem… but it’s eating me alive.
               </p>
               <p>
-                You are a very beautiful person, I'm sorry you came across my
-                path.
+                I don’t expect you to fix me. I don’t expect you to carry my
+                pain. I just wish… I wish I knew why you felt like you had to
+                run away. Why you seemed so scared to talk to me again.
               </p>
-              <p>a fool named Harry 🙄</p>
+              <p>
+                What did I do that was so wrong? What part of me makes people
+                walk away?
+              </p>
+              <p>
+                I just want to understand. Not to bring back the past… but to
+                learn, to grow, to stop hurting people without even realizing
+                it.
+              </p>
+              <p>
+                Please… if you have even one word to give me… I’m ready to hear
+                it, even if it’s not what I hope for.
+              </p>
+              <p>
+                I just need to know. Because right now, i feel like I’m breaking
+                a little more every day. I miss you.
+              </p>
+              <p>a fool named Harry, whi try to understand the world 🙄</p>
               <div class="close-modal" @click.self="showModal = false">ปิด</div>
             </div>
           </div>
