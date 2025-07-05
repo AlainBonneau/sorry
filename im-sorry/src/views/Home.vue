@@ -1,6 +1,5 @@
 <script>
 import ChatWindows from "../components/ChatWindows.vue";
-import MarkdownViewer from "../components/MarkdownViewer.vue";
 import MinnieMessage from "../components/MinnieMessage.vue";
 </script>
 
@@ -30,22 +29,6 @@ import MinnieMessage from "../components/MinnieMessage.vue";
         🖼️ ภาพ 🖼️
       </button>
 
-      <!-- <button @click="showMinnieModal = true" class="open-markdown">
-        📝 English text 📝
-      </button> -->
-
-      <button
-        @click="
-          () => {
-            showChatModal = true;
-            trackModalOpen();
-          }
-        "
-        class="open-chat"
-      >
-        💬 แชทส่วนตัว 💬
-      </button>
-
       <div
         v-if="showMinnieModal"
         class="modal-overlay"
@@ -65,7 +48,7 @@ import MinnieMessage from "../components/MinnieMessage.vue";
 
       <!-- Question oui/non -->
       <div class="question">
-        <p>โปรดบอกฉันหน่อยว่าฉันควรจะรอคุณต่อไปหรือเปล่า</p>
+        <p>ฉันหวังว่าคุณจะสบายดี</p>
 
         <!-- New textarea for her message -->
         <textarea
@@ -111,100 +94,31 @@ import MinnieMessage from "../components/MinnieMessage.vue";
         </button>
       </div>
     </div>
-
-    <!-- Markdown Modal -->
-    <!-- <div
-      v-if="showMarkdownModal"
-      class="modal-overlay"
-      @click.self="showMarkdownModal = false"
-    >
-      <div class="markdown-modal-box animate-pop">
-        <MarkdownViewer />
-        <button @click="showMarkdownModal = false" class="close-markdown">
-          ปิดบทสนทนา
-        </button>
-      </div>
-    </div> -->
-
     <!-- Message Modal -->
     <div v-if="showModal" class="modal-overlay" @click.self="showModal = false">
       <div class="envelope animate-pop">
         <div class="letter">
           <div class="letter-background">
             <div class="letter-text">
+              <p>Minnie,</p>
               <p>
-                I don’t know if you’ll ever read this fully… but I need to say
-                it somewhere, just to let it out.
+                It’s been two months, and even though life moves on, I still
+                think about you sometimes. I know things were complicated
+                between us, and I have some regrets, not about what I felt, but
+                about how it all ended.
               </p>
               <p>
-                I know I’ve probably sent too many messages already… and you
-                might be tired of reading them. But I just need to speak
-                honestly, without trying to make it short or simple.
+                I understand you need your space, and I respect your silence. I
+                just want you to know you’ll always have a special place in my
+                memories, and I truly wish you all the best, whatever you
+                choose.
               </p>
               <p>
-                This whole situation hurts me more than I can explain. Not
-                because I’m mad at you. I promise I’m not. But because I just…
-                don’t understand. I don’t understand why the people I care about
-                always seem to disappear one day, without a word.
+                And if one day you ever want to come back, talk, or just let me
+                know how you’re doing, you’ll always be welcome. If not, I’ll
+                understand.
               </p>
-              <p>
-                You know… I’ve always been the kind of person who overthinks
-                everything. I guess I’ve always been that way — people used to
-                call me a “gifted child”, someone who thinks too much, feels too
-                much, questions everything too deeply. Maybe that’s why I get so
-                easily lost in my own mind, in my own fears.
-              </p>
-              <p>
-                The truth is… I don’t have many people in my life. I have maybe
-                one true friend. Even my family barely talks to me, except for
-                my mom. I’ve always felt like I was standing alone, waiting for
-                someone to truly stay.
-              </p>
-              <p>
-                That’s why what you said once — “I don’t want to lose you” —
-                really meant the world to me. I don’t know if you remember
-                saying it… Maybe you regret those words now. But for me, they
-                stayed in my heart. They were the most important words I had
-                heard in a long time.
-              </p>
-              <p>And since that day… I’ve missed you. Every day.</p>
-              <p>
-                I know it might seem silly to you… I know we didn’t know each
-                other for that long. But you were special to me. You still are.
-              </p>
-              <p>
-                Sometimes I get angry… not at you, but at myself, and at life in
-                general. Angry because I feel like I’m never good enough.
-                Because I feel like no matter what I do, I always end up alone.
-              </p>
-              <p>
-                I have this constant fear inside me… Fear of being abandoned,
-                fear of disappointing people, fear of being forgotten. And yes,
-                I know it’s my own problem… but it’s eating me alive.
-              </p>
-              <p>
-                I don’t expect you to fix me. I don’t expect you to carry my
-                pain. I just wish… I wish I knew why you felt like you had to
-                run away. Why you seemed so scared to talk to me again.
-              </p>
-              <p>
-                What did I do that was so wrong? What part of me makes people
-                walk away?
-              </p>
-              <p>
-                I just want to understand. Not to bring back the past… but to
-                learn, to grow, to stop hurting people without even realizing
-                it.
-              </p>
-              <p>
-                Please… if you have even one word to give me… I’m ready to hear
-                it, even if it’s not what I hope for.
-              </p>
-              <p>
-                I just need to know. Because right now, i feel like I’m breaking
-                a little more every day. I miss you.
-              </p>
-              <p>a fool named Harry, whi try to understand the world 🙄</p>
+              <p>Take care of you, Harry.</p>
               <div class="close-modal" @click.self="showModal = false">ปิด</div>
             </div>
           </div>
@@ -268,18 +182,6 @@ function confirmResponse() {
       console.error(err);
     });
 }
-
-const trackModalOpen = () => {
-  fetch("https://chat.sparcky-dev.fr/track-view", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      target: "minnie-message",
-      timestamp: new Date().toISOString(),
-      // éventuellement un ID utilisateur anonyme ici
-    }),
-  });
-};
 </script>
 
 <style scoped>

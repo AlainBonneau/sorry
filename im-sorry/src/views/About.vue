@@ -13,14 +13,14 @@
     <div class="content">
       <h1 class="underline-text">เกี่ยวกับ</h1>
       <button @click="showEnglish = true" class="open-modal">
-        ดูข้อความ (ภาษาอังกฤษ)
+        No message (English)
       </button>
       <button
         @click="showThai = true"
         class="open-modal"
         style="margin-left: 1rem"
       >
-        ดูข้อความ (ภาษาไทย)
+        No message (ภาษาไทย)
       </button>
       <router-link to="/" class="open-modal" style="margin-left: 1rem">
         ← กลับไปยังหน้าแรกของเว็บไซต์
@@ -28,7 +28,7 @@
     </div>
 
     <!-- English Modal -->
-    <div
+    <!-- <div
       v-if="showEnglish"
       class="modal-overlay"
       @click.self="showEnglish = false"
@@ -63,10 +63,10 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Thai Modal -->
-    <div v-if="showThai" class="modal-overlay" @click.self="showThai = false">
+    <!-- <div v-if="showThai" class="modal-overlay" @click.self="showThai = false">
       <div class="modal-box animate-pop">
         <div class="modal-content">
           <p>
@@ -93,7 +93,7 @@
           <button class="close-modal" @click="showThai = false">ปิด</button>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
