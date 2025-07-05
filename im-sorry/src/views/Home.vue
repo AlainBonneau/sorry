@@ -118,7 +118,12 @@ import MinnieMessage from "../components/MinnieMessage.vue";
                 know how you’re doing, you’ll always be welcome. If not, I’ll
                 understand.
               </p>
-              <p>Take care of you, Harry.</p>
+              <p>
+                Take care of you,
+                <a href="https://www.instagram.com/harrydev97/" target="_blank"
+                  >Harry</a
+                >.
+              </p>
               <div class="close-modal" @click.self="showModal = false">ปิด</div>
             </div>
           </div>
